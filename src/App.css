@@ -1,3 +1,4 @@
+/* Vite/React oletustyylit */
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -39,4 +40,60 @@
 
 .read-the-docs {
   color: #888;
+}
+
+/* --- TUMMA TEEMA, LAATIKOT, KARTTA --- */
+body, .app-bg {
+  background: #23242a !important;
+  min-height: 100vh;
+  color: #fff;
+}
+
+.otsikko {
+  font-size: 2em;
+  font-weight: bold;
+  margin: 32px 0 24px 0;
+  color: #fff;
+  text-align: center;
+}
+
+.laatikko {
+  background: rgba(24,26,29,0.97);
+  color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 18px rgba(0,0,0,0.19);
+  padding: 18px 22px;
+  margin-bottom: 18px;
+  font-size: 1.11em;
+  max-width: 390px;
+  width: 96vw;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.laatikko ul {
+  margin: 10px 0 0 18px;
+  padding: 0;
+}
+
+.laatikko li {
+  color: #fff;
+  opacity: 0.98;
+}
+
+.kartta {
+  margin-bottom: 18px;
+  max-width: 390px;
+  width: 96vw;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 14px rgba(0,0,0,0.15);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Responsiivinen mobiili */
+@media (max-width: 700px) {
+  .laatikko, .kartta { max-width: 99vw; padding-left: 6px; padding-right: 6px; }
+  .otsikko { font-size: 1.23em; }
 }
