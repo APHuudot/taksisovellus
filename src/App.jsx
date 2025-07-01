@@ -129,10 +129,8 @@ function App() {
   }
 
   return (
-    <div style={{ fontFamily: "Arial", maxWidth: 480, margin: "0 auto" }}>
-      <h2 style={{ marginTop: 20, textAlign: "center" }}>
-        Jokisen Taksipalvelu
-      </h2>
+    <div className="app-bg">
+      <h2 className="otsikko">Jokisen Taksipalvelu</h2>
       {!loggedIn && (
         <form onSubmit={handleLogin} style={{ textAlign: "center", margin: 40 }}>
           <input
@@ -160,14 +158,7 @@ function App() {
             )}
           </div>
 
-          <div
-            style={{
-              background: "#eee",
-              borderRadius: 12,
-              padding: 15,
-              marginBottom: 20,
-            }}
-          >
+          <div className="laatikko">
             <b>Käyttäjä:</b> {name}
             <br />
             <b>Status:</b>{" "}
@@ -204,7 +195,7 @@ function App() {
           </div>
 
           {/* Kartta */}
-          <div style={{ height: 320, marginBottom: 16, borderRadius: 10, overflow: "hidden" }}>
+          <div className="kartta">
             {pos ? (
               <MapContainer
                 center={[pos.lat, pos.lng]}
@@ -233,7 +224,7 @@ function App() {
             {showHistory ? "Piilota historia" : "Näytä sijaintihistoria"}
           </button>
           {showHistory && (
-            <div style={{ background: "#fafafa", padding: 12, borderRadius: 7, marginTop: 10 }}>
+            <div className="laatikko historia">
               <b>Sijaintihistoria (uusin ensin):</b>
               <ul>
                 {history.slice().reverse().map((h, i) => (
