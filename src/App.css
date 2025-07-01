@@ -1,99 +1,133 @@
-/* Vite/React oletustyylit */
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+body {
+  background: #1a1a1a;
+  color: #fff;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
-
-/* --- TUMMA TEEMA, LAATIKOT, KARTTA --- */
-body, .app-bg {
-  background: #23242a !important;
+.app-root {
+  font-family: 'Arial', sans-serif;
+  background: #1a1a1a;
+  color: #fff;
   min-height: 100vh;
-  color: #fff;
+  padding-bottom: 30px;
 }
 
-.otsikko {
-  font-size: 2em;
-  font-weight: bold;
-  margin: 32px 0 24px 0;
-  color: #fff;
+.title {
+  margin-top: 20px;
   text-align: center;
-}
-
-.laatikko {
-  background: rgba(24,26,29,0.97);
   color: #fff;
-  border-radius: 16px;
-  box-shadow: 0 2px 18px rgba(0,0,0,0.19);
-  padding: 18px 22px;
-  margin-bottom: 18px;
-  font-size: 1.11em;
-  max-width: 390px;
-  width: 96vw;
-  margin-left: auto;
-  margin-right: auto;
 }
 
-.laatikko ul {
-  margin: 10px 0 0 18px;
-  padding: 0;
+.login-form {
+  text-align: center;
+  margin: 40px 0;
 }
 
-.laatikko li {
+.pin-input {
+  padding: 10px;
+  font-size: 18px;
+  width: 160px;
+  border-radius: 6px;
+  border: none;
+  margin-right: 8px;
+}
+
+.main-btn {
+  background: #444;
   color: #fff;
-  opacity: 0.98;
+  border-radius: 7px;
+  padding: 10px 18px;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+  margin: 4px 2px;
+  font-weight: bold;
+  transition: background 0.2s;
+}
+.main-btn:hover { background: #222; }
+
+.error {
+  color: #ff4b4b;
+  margin-top: 10px;
+  font-weight: bold;
 }
 
-.kartta {
-  margin-bottom: 18px;
-  max-width: 390px;
-  width: 96vw;
+.topbar {
+  text-align: right;
+  margin-bottom: 8px;
+}
+
+.card.dark-card {
+  background: #232323;
   border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 2px 14px rgba(0,0,0,0.15);
-  margin-left: auto;
-  margin-right: auto;
+  padding: 15px;
+  margin-bottom: 20px;
+  color: #fff;
+  box-shadow: 0 2px 8px #0005;
 }
 
-/* Responsiivinen mobiili */
-@media (max-width: 700px) {
-  .laatikko, .kartta { max-width: 99vw; padding-left: 6px; padding-right: 6px; }
-  .otsikko { font-size: 1.23em; }
+.status-row {
+  margin-bottom: 18px;
+}
+
+.status-btn {
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 7px;
+  border: none;
+  font-size: 16px;
+  font-weight: bold;
+  margin-right: 10px;
+  cursor: pointer;
+  transition: filter 0.18s;
+}
+
+.map-wrap {
+  height: 320px;
+  margin-bottom: 18px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #222;
+  box-shadow: 0 2px 12px #0003;
+}
+
+.history-box {
+  background: #232323;
+  color: #fff;
+  border-radius: 8px;
+  padding: 14px 14px 10px 16px;
+  margin-top: 12px;
+  font-size: 16px;
+  box-shadow: 0 1px 6px #0003;
+}
+.history-box ul {
+  margin: 8px 0 0 0;
+  padding: 0 0 0 16px;
+  text-align: left;
+  font-size: 15px;
+}
+.history-box li {
+  margin-bottom: 5px;
+}
+
+.admin-form {
+  margin-top: 28px;
+  background: #222;
+  border-radius: 9px;
+  padding: 18px;
+  color: #fff;
+  text-align: left;
+  box-shadow: 0 2px 10px #0003;
+}
+
+@media (max-width: 600px) {
+  .app-root {
+    padding: 5px;
+  }
+  .map-wrap {
+    height: 230px;
+  }
+  .history-box {
+    font-size: 14px;
+    padding: 10px 5px;
+  }
 }
