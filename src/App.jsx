@@ -4,7 +4,6 @@ import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 import "./App.css";
 
-// Vakiot kuten aiemmin...
 const STATUS_OPTIONS = [
   { label: "Vapaa", color: "green" },
   { label: "Ajossa", color: "red" },
@@ -129,36 +128,36 @@ function App() {
   }
 
   return (
-    <div className="app-bg">
-      <h2 className="otsikko">Jokisen Taksipalvelu</h2>
+    <div className="app-root">
+      <h2 className="title">Jokisen Taksipalvelu</h2>
       {!loggedIn && (
-        <form onSubmit={handleLogin} style={{ textAlign: "center", margin: 40 }}>
+        <form onSubmit={handleLogin} className="login-form">
           <input
             type="password"
             value={pin}
             placeholder="Syötä PIN-koodi"
             onChange={(e) => setPin(e.target.value)}
-            style={{ padding: 10, fontSize: 18, width: 180 }}
+            className="pin-input"
           />
-          <button type="submit" style={{ marginLeft: 10, fontSize: 18 }}>
+          <button type="submit" className="main-btn">
             Kirjaudu
           </button>
-          {error && <div style={{ color: "red", marginTop: 15 }}>{error}</div>}
+          {error && <div className="error">{error}</div>}
         </form>
       )}
 
       {loggedIn && (
         <div>
-          <div style={{ textAlign: "right", marginBottom: 10 }}>
-            <button onClick={handleLogout}>Kirjaudu ulos</button>
+          <div className="topbar">
+            <button className="main-btn" onClick={handleLogout}>Kirjaudu ulos</button>
             {role === "admin" && (
-              <button onClick={() => setShowAdmin((s) => !s)} style={{ marginLeft: 10 }}>
+              <button className="main-btn" onClick={() => setShowAdmin((s) => !s)}>
                 Asetukset
               </button>
             )}
           </div>
 
-          <div className="laatikko">
+          <div className="card dark-card">
             <b>Käyttäjä:</b> {name}
             <br />
             <b>Status:</b>{" "}
@@ -172,20 +171,15 @@ function App() {
               : "Ei saatavilla"}
           </div>
 
-          <div style={{ marginBottom: 15 }}>
+          <div className="status-row">
             {STATUS_OPTIONS.map((opt) => (
               <button
                 key={opt.label}
+                className="status-btn"
                 style={{
-                  marginRight: 10,
                   background: opt.color,
-                  color: "white",
-                  padding: "8px 16px",
-                  borderRadius: 7,
-                  border: "none",
-                  fontWeight: status === opt.label ? "bold" : "normal",
                   opacity: status === opt.label ? 1 : 0.6,
-                  fontSize: 16,
+                  border: status === opt.label ? "2px solid #fff" : "none"
                 }}
                 onClick={() => setStatus(opt.label)}
               >
@@ -195,7 +189,7 @@ function App() {
           </div>
 
           {/* Kartta */}
-          <div className="kartta">
+          <div className="map-wrap">
             {pos ? (
               <MapContainer
                 center={[pos.lat, pos.lng]}
@@ -220,11 +214,11 @@ function App() {
             )}
           </div>
 
-          <button onClick={() => setShowHistory((v) => !v)}>
+          <button className="main-btn" onClick={() => setShowHistory((v) => !v)}>
             {showHistory ? "Piilota historia" : "Näytä sijaintihistoria"}
           </button>
           {showHistory && (
-            <div className="laatikko historia">
+            <div className="history-box">
               <b>Sijaintihistoria (uusin ensin):</b>
               <ul>
                 {history.slice().reverse().map((h, i) => (
@@ -237,19 +231,19 @@ function App() {
           )}
 
           {showAdmin && role === "admin" && (
-            <form onSubmit={handlePinChange} style={{ marginTop: 20 }}>
+            <form onSubmit={handlePinChange} className="admin-form">
               <h4>Vaihda käyttäjä-PIN</h4>
               <input
                 type="text"
                 placeholder="Uusi PIN"
                 value={newPin}
                 onChange={(e) => setNewPin(e.target.value)}
-                style={{ fontSize: 18, padding: 8, width: 120 }}
+                className="pin-input"
               />
-              <button type="submit" style={{ marginLeft: 10, fontSize: 16 }}>
+              <button type="submit" className="main-btn">
                 Vaihda PIN
               </button>
-              {error && <div style={{ color: "red" }}>{error}</div>}
+              {error && <div className="error">{error}</div>}
             </form>
           )}
         </div>
